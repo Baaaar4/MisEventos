@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +21,9 @@ import java.util.ArrayList;
 
 public class CrearEvento extends AppCompatActivity {
     private Spinner spnImportancia;
-    private Button btnEveRegistrar, btnEveCancelar;
+    private Button btnEveRegistrar, btnEveCancelar, btnRetroceder, btnAvanzar;
     private EditText etEveTitulo, etEveFecha, etEveObs, etEveLugar, etEveAviso;
+    private TextView tvPaginacion;
 
     //Spinner
     /*String tipoimportancia[] = {"Alta","Media","Baja"};
@@ -37,8 +39,8 @@ public class CrearEvento extends AppCompatActivity {
         setContentView(R.layout.activity_crear_evento);
 
         spnImportancia = (Spinner) findViewById(R.id.spnImportancia);
-        String [] opciones={"Seleccione","Alta","Media","Baja"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String> (this,android.R.layout.simple_spinner_item, opciones);
+        String[] opciones = {"Seleccione", "Alta", "Media", "Baja"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spnImportancia.setAdapter(adapter);
 
         /*poblar();*/
@@ -46,11 +48,6 @@ public class CrearEvento extends AppCompatActivity {
         eventos();
 
         /*obtenerDatosEvento();*/
-
-        /*ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, tipoimportancia);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-        importan.setAdapter(spinnerArrayAdapter);*/
-
     }
 
     /*private void poblar() {
@@ -122,9 +119,9 @@ public class CrearEvento extends AppCompatActivity {
             evento eve = new evento(titulo, fecha, importancia, observacion, lugar, aviso);
             losEventos.add(eve);
 
-            /*grabarBaseDatos(eve);*/
+            grabarBaseDatos(eve);
 
-            /*tvPaginacion.setText((indiceActual + 1) + " de " + losClientes.size());*/
+            tvPaginacion.setText((indiceActual + 1) + " de " + losClientes.size());*/
             Toast.makeText(CrearEvento.this, "Grabado exitosamente", Toast.LENGTH_SHORT).show();
             limpiarPantalla();
 
@@ -184,7 +181,7 @@ public class CrearEvento extends AppCompatActivity {
         }
     }
 
-    /*private void eliminarCliente(){
+    /*private void eliminarEvento(){
         if(indiceActual >= 0 && indiceActual < losClientes.size()) {
             losClientes.remove(indiceActual);
             limpiarPantalla();
@@ -199,12 +196,11 @@ public class CrearEvento extends AppCompatActivity {
         etEveLugar = findViewById(R.id.etEveLugar);
         etEveAviso = findViewById(R.id.etEveAviso);
         btnEveCancelar = findViewById(R.id.btnEveCancelar);
+        tvPaginacion = findViewById(R.id.tvPag);
         btnEveRegistrar = findViewById(R.id.btnEveRegistrar);
-        /*tvPaginacion = findViewById(R.id.tvPag);
-        btnAvanzar = findViewById(R.id.btnAvanzar);*/
+        btnRetroceder = findViewById(R.id.btnRetrocede);
+        btnAvanzar = findViewById(R.id.btnAvanzar);
 
-        /*adapterImport = new ArrayAdapter(this, android.R.layout.simple_spinner_item );
-        spnImportancia.setAdapter(adapterImport);*/
 
     }
 
