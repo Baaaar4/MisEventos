@@ -43,34 +43,28 @@ public class CrearEvento extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spnImportancia.setAdapter(adapter);
 
-        /*poblar();*/
+        poblar();
         referencias();
         eventos();
 
-        /*obtenerDatosEvento();*/
+        obtenerDatosEvento();
     }
 
-    /*private void poblar() {
-        tipoImportancia = new String[] {"Selecione tipo de cliente", "Bueno", "Regular", "Malo"};
+    private void poblar() {
+        /*tipoImportancia = new String[] {"Selecione tipo de cliente", "Bueno", "Regular", "Malo"};*/
 
         losEventos = new ArrayList<evento>();
-        losEventos.add(new evento("Bautizo", ("01/08/2021") , "Alta", "Llevar ropa formal","Los angeles","2 días antes"));
+        /*losEventos.add(new evento("Bautizo", ("01/08/2021") , "Alta", "Llevar ropa formal","Los angeles","2 días antes"));
         losEventos.add(new evento();
         losEventos.add(new evento();
-        losEventos.add(new evento();
-    };*/
+        losEventos.add(new evento();*/
+    };
 
 /* OBTENER LOS DATOS DEL ARRAYLIST*/
-    /*private void obtenerDatosEvento() {
-        String importan = getIntent().getExtras().getString("datoNombre");
-        tipoimportancia[0] = "Seleccione ";
-        tipoimportancia[1] = "Alta";
-        tipoimportancia[2] = "Media";
-        tipoimportancia[3] = "Baja";
-    }
-        /*if(indiceActual >= 0 && indiceActual < losEventos.size()) {*/
-            /*evento eve = losEventos.get(indiceActual);*/
-            /*etEveTitulo.setText(eve.getTitulo());
+    private void obtenerDatosEvento() {
+        if(indiceActual >= 0 && indiceActual < losEventos.size()) {
+            evento eve = losEventos.get(indiceActual);
+            etEveTitulo.setText(eve.getTitulo());
             etEveFecha.setText(eve.getFecha());
             etEveObs.setText(eve.getObservacion());
             etEveLugar.setText(eve.getLugar());
@@ -82,16 +76,16 @@ public class CrearEvento extends AppCompatActivity {
 
             if(eve.getImportancia().equals("Baja")) spnImportancia.setSelection(3);
 
-            /*tvPaginacion.setText((indiceActual + 1) + " de " + losClientes.size());*/
-        /*}*/
-    /*}*/
+            tvPaginacion.setText((indiceActual + 1) + " de " + losEventos.size());
+        }
+    }
 
     private void limpiarPantalla(){
         etEveTitulo.setText(""); etEveFecha.setText(""); spnImportancia.setSelection(0); etEveObs.setText("");etEveLugar.setText("");etEveAviso.setText("");
         etEveTitulo.setError(null); etEveFecha.setError(null); etEveObs.setError(null);etEveLugar.setError(null);etEveAviso.setError(null);
 
-        /*tvPaginacion.setText("" + losClientes.size());
-        indiceActual = -1;*/
+        tvPaginacion.setText("" + losEventos.size());
+        indiceActual = -1;
     }
 
     private void grabarEvento(){
@@ -121,7 +115,7 @@ public class CrearEvento extends AppCompatActivity {
 
             grabarBaseDatos(eve);
 
-            tvPaginacion.setText((indiceActual + 1) + " de " + losClientes.size());*/
+            tvPaginacion.setText((indiceActual + 1) + " de " + losEventos.size());
             Toast.makeText(CrearEvento.this, "Grabado exitosamente", Toast.LENGTH_SHORT).show();
             limpiarPantalla();
 
@@ -222,32 +216,32 @@ public class CrearEvento extends AppCompatActivity {
         });*/
 
         /*AQUI HACER BOTON PARA CANCELAR RETROCEDER*/
-        /*btnEveCancelar.setOnClickListener(new View.OnClickListener() {
+        btnRetroceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 indiceActual = indiceActual - 1;
 
                 if(indiceActual == -1)
-                    indiceActual = losClientes.size() - 1;
+                    indiceActual = losEventos.size() - 1;
 
-                obtenerDatosCliente();
+                obtenerDatosEvento();
             }
-        });*/
+        });
 
-        /*btnAvanzar.setOnClickListener(new View.OnClickListener() {
+        btnAvanzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 indiceActual = indiceActual + 1;
 
-                if(indiceActual == losClientes.size()) {
+                if(indiceActual == losEventos.size()) {
                     //btnAvanzar.setEnabled(false);
                     //btnAvanzar.setVisibility(View.INVISIBLE);
                     indiceActual = 0;
                 }
 
-                obtenerDatosCliente();
+                obtenerDatosEvento();
             }
-        });*/
+        });
 
 
     }
