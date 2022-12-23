@@ -101,7 +101,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@color/black"
-            android:text="<--"
+            android:text="Ir"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -136,7 +136,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@color/black"
-            android:text="-->"
+            android:text="ir"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
