@@ -45,7 +45,7 @@ public class cambiar extends AppCompatActivity implements View.OnClickListener {
                 }else if(dao.updateUsuario(u)) {
                     Toast.makeText(this, "Cambio sin problemas", Toast.LENGTH_LONG).show();
                     Intent i2 = new Intent(cambiar.this, inicio.class);
-                    i2.putExtra("id",u.getId());
+                    i2.putExtra("Id",u.getId());
                     startActivity(i2);
                     finish();
                 }else{
@@ -55,6 +55,7 @@ public class cambiar extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnCancelarEdit:
                 Intent i2=new Intent(cambiar.this, inicio.class);
                 startActivity(i2);
+                i2.putExtra("Id", id);
                 finish();
                 break;
 

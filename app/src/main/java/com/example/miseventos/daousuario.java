@@ -102,7 +102,11 @@ public class daousuario {
     public boolean updateUsuario (Usuario u){
         ContentValues cv = new ContentValues();
         cv.put("pass", u.getPassword());
-        return (sql.update("usuario",cv, "id="+u.getId(), null) > 0);
+        return (sql.update("usuario",cv, "id=" + u.getId(), null) > 0);
+    }
+
+    public boolean eliminarUsuario (int id){
+        return (sql.delete("usuario", "id=" + id, null) > 0);
     }
 
 
