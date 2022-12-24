@@ -12,22 +12,48 @@ import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-public class inicio extends AppCompatActivity implements View.OnClickListener {
-    private Button btnEvent, btnEliminar, btnPassEdit;
+public class inicio<id> extends AppCompatActivity implements View.OnClickListener {
+    Button btnEvent, btnEliminar, btnEditar, btnSalir;
+    TextView nombre;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-
-        referencias();
-        eventos();
+        nombre = (TextView) findViewById(R.id.nombreUsuario);
+        btnEvent = findViewById(R.id.btnEvent);
+        btnEliminar = findViewById(R.id.btnEliminar);
+        btnEditar = findViewById(R.id.btnEditar);
+        btnSalir.setOnClickListener(this);
+        btnEditar.setOnClickListener(this);
+        btnEvent.setOnClickListener(this);
+        btnEliminar.setOnClickListener(this);
     }
 
+
+    @Override
+    protected void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnEditar:
+                Intent a = new Intent(this, cambiar.class);
+                cambiar.putExtra("Id", id);
+                startActivity(a);
+                break;
+            case R.id.btnEliminar:
+                break;
+            case R.id.btnEvent:
+                break;
+            case R.id.btnSalir:
+                break;
+        }
+    }
     private void editar(){
-        Intent editar = new Intent(this, Editar.class);
-        startActivity(editar);
+
+        Intent cambiar = new Intent(this, cambiar.class);
+        cambiar.putExtra("Id", id);
+        startActivity(cambiar);
     }
 
     private void eliminarUsuario(){
@@ -79,6 +105,9 @@ public class inicio extends AppCompatActivity implements View.OnClickListener {
         btnEvent = findViewById(R.id.btnEvent);
         btnEliminar = findViewById(R.id.btnEliminar);
         btnPassEdit = findViewById(R.id.btnPassEdit);
+        Bundle b=getIntent().getExtras();
+        id= b.getInt("Id");
+
     }
 
     @Override

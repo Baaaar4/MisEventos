@@ -99,6 +99,11 @@ public class daousuario {
         }
         return null;
     }
+    public boolean updateUsuario (Usuario u){
+        ContentValues cv = new ContentValues();
+        cv.put("pass", u.getPassword());
+        return (sql.update("usuario",cv, "id="+u.getId(), null) > 0);
+    }
 
 
 }

@@ -33,7 +33,7 @@
             android:textStyle="italic" />
 
         <Button
-            android:id="@+id/btnPassEdit"
+            android:id="@+id/btnEditar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -44,6 +44,13 @@
             android:textSize="10dp"
             android:textStyle="italic" />
 
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/btnEliminar"
             android:layout_width="0dp"
@@ -51,10 +58,23 @@
             android:layout_weight="1"
             android:layout_margin="20dp"
             android:background="@color/black"
-            android:text="Eliminar Usuario"
+            android:text="Agregar Evento"
             android:textColor="@color/white"
             android:textSize="10dp"
             android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/btnSalir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:background="@color/black"
+            android:text="Cambiar Clave"
+            android:textColor="@color/white"
+            android:textSize="10dp"
+            android:textStyle="italic" />
+
     </LinearLayout>
 
     <ListView
