@@ -55,6 +55,8 @@ public class cambiar extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnCancelarEdit:
                 Intent i2=new Intent(cambiar.this, inicio.class);
                 startActivity(i2);
+                finish();
+                break;
 
         }
 

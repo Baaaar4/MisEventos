@@ -15,6 +15,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class inicio<id> extends AppCompatActivity implements View.OnClickListener {
     Button btnEvent, btnEliminar, btnEditar, btnSalir;
     TextView nombre;
+    int id=0;
+    Usuario u;
+    daousuario dao;
 
 
 
@@ -22,34 +25,49 @@ public class inicio<id> extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-        nombre = (TextView) findViewById(R.id.nombreUsuario);
+        nombre = (TextView) findViewById(R.id.tvNombreUsuario);
         btnEvent = findViewById(R.id.btnEvent);
         btnEliminar = findViewById(R.id.btnEliminar);
         btnEditar = findViewById(R.id.btnEditar);
-        btnSalir.setOnClickListener(this);
         btnEditar.setOnClickListener(this);
         btnEvent.setOnClickListener(this);
         btnEliminar.setOnClickListener(this);
+        btnSalir.setOnClickListener(this);
+
+        Bundle b=getIntent().getExtras();
+        id=b.getInt("Id");
+        dao=new daousuario(this);
+        u=dao.getUsuarioById(id);
+        nombre.setText(u.getNombre()+" "+u.getApellidos());
     }
 
 
     @Override
-    protected void onClick(View v) {
+    public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnEditar:
-                Intent a = new Intent(this, cambiar.class);
-                cambiar.putExtra("Id", id);
+                Intent a = new Intent(inicio.this, cambiar.class);
+                a.putExtra("Id", id);
                 startActivity(a);
                 break;
             case R.id.btnEliminar:
                 break;
             case R.id.btnEvent:
+                Intent c = new Intent(inicio.this, CrearEvento.class);
+                startActivity(c);
                 break;
             case R.id.btnSalir:
+                Intent i2 = new Intent(inicio.this, MainActivity.class);
+                startActivity(i2);
+                finish();
                 break;
         }
     }
-    private void editar(){
+}
+
+
+
+   /* private void editar(){
 
         Intent cambiar = new Intent(this, cambiar.class);
         cambiar.putExtra("Id", id);
@@ -110,10 +128,7 @@ public class inicio<id> extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    @Override
-    public void onClick(View view) {
 
-    }
-}
+}*/
 
 
