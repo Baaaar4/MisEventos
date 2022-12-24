@@ -208,14 +208,7 @@ public class CrearEvento extends AppCompatActivity {
             }
         });
 
-        /*btnEliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                eliminarCliente();
-            }
-        });*/
 
-        /*AQUI HACER BOTON PARA CANCELAR RETROCEDER*/
         btnRetroceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,12 +239,3 @@ public class CrearEvento extends AppCompatActivity {
 
     }
 }
-
-
-
-
-        /*importancia=(Spinner) findViewById(R.id.spImportancia);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource
-                (this, R.array.importancia, android.R.layout.simple_spinner_item);
-        importancia.setAdapter(adapter);
-    }*/
